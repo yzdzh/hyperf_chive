@@ -1,0 +1,34 @@
+{
+  "name": "chive/hyperf",
+  "description": "非官方包，学习交流,hyperf工具类",
+  "type": "library",
+  "require": {
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "yzdzh",
+      "email": "yzdzh@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Chive\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "hyperf": {
+      "config": "Chive\\ConfigProvider"
+    }
+  },
+  "scripts": {
+    "cs-fix": "php-cs-fixer fix $1",
+    "test": "phpunit -c phpunit.xml --colors=always",
+    "analyse": "phpstan analyse --memory-limit 1024M -l 0 ./src"
+  }
+}

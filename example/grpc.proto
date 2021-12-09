@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package grpc;
+
+service hi {
+  rpc grpcRequest (Request) returns (Reply) {}
+}
+
+message Request {
+  string module = 1;            // 模块
+  string controller = 2;        // 控制器
+  string method = 3;            // 方法
+  string userInfo = 4;          // 用户登录信息
+  string requestParam = 5;      // 传参
+  string attachment = 6;        // 批量上传文件
+  string file = 7;              // 当文件上传
+}
+
+message Reply {
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+  int32  total = 4;
+}

@@ -1,0 +1,106 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "hyperf swagger api desc",
+        "version": "1.0.0",
+        "title": "HYPERF API DOC"
+    },
+    "host": "192.168.79.129:9501",
+    "schemes": [
+        "http"
+    ],
+    "tags": [
+        {
+            "name": "demo控制器",
+            "description": "控制XX执行"
+        }
+    ],
+    "definitions": {
+        "ModelArray": {
+            "type": "array",
+            "required": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "ModelObject": {
+            "type": "object",
+            "required": [],
+            "items": {
+                "type": "string"
+            }
+        },
+        "DemoIndexPostResponse0": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "",
+                    "default": "1",
+                    "example": "string"
+                }
+            }
+        }
+    },
+    "paths": {
+        "/demo/index": {
+            "post": {
+                "tags": [
+                    "demo控制器"
+                ],
+                "summary": "",
+                "description": "",
+                "operationId": "/demo/index",
+                "parameters": [
+                    {
+                        "in": "formData",
+                        "name": "aname",
+                        "description": "A参数",
+                        "required": true,
+                        "type": "integer",
+                        "default": null
+                    },
+                    {
+                        "in": "formData",
+                        "name": "cname[cc]",
+                        "description": "C参数",
+                        "required": true,
+                        "type": "integer",
+                        "default": null
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "-1": {
+                        "description": "参数错误"
+                    },
+                    "0": {
+                        "description": "请求成功",
+                        "schema": {
+                            "$ref": "#/definitions/DemoIndexPostResponse0"
+                        }
+                    }
+                },
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ]
+            }
+        },
+        "/demo/test": {
+            "get": {
+                "tags": [
+                    "demo控制器"
+                ],
+                "summary": "",
+                "description": "",
+                "operationId": "/demo/test",
+                "parameters": [],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": []
+            }
+        }
+    }
+}
