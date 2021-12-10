@@ -59,7 +59,7 @@ class RoutesService
 	{
 		$this->method = explode(",", config('chive.route_method', 'post,get'));
 		$this->split  = config('chive.route_rule_split', '/');
-		$ignore       = config('chive.route_ignore');
+		$ignore       = config('chive.route_ignore',[]);
 		$this->ignore = array_merge(self::$ignoreMehtod, $ignore);
 	}
 
