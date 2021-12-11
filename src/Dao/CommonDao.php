@@ -24,8 +24,8 @@ class CommonDao
 	 */
 	public static function getAllTableName($dbName)
 	{
-		$sql = "SELECT table_name,table_comment FROM information_schema.TABLES WHERE table_schema = '" . $dbName . "' AND table_type = 'base table'";
-		return Db::select($sql);
+		$sql = "SELECT table_name as table_name,table_comment as table_comment FROM information_schema.TABLES WHERE table_schema = '" . $dbName . "' AND (table_type = 'base table' OR table_type = 'BASE TABLE')";
+        return Db::select($sql);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class CommonDao
 	 */
 	public static function getTableColumn($dbName, $tableName)
 	{
-		$sql = "SELECT `column_name`, `data_type`, `column_comment` FROM information_schema. COLUMNS WHERE `table_schema` = '" . $dbName . "' AND `table_name` = '{$tableName}' ORDER BY ORDINAL_POSITION;";
+		$sql = "SELECT `column_name` as column_name, `data_type` as data_type , `column_comment` as column_comment FROM information_schema. COLUMNS WHERE `table_schema` = '" . $dbName . "' AND `table_name` = '{$tableName}' ORDER BY ORDINAL_POSITION;";
 		return Db::select($sql);
 	}
 
